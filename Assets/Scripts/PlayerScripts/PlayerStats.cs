@@ -83,7 +83,6 @@ public class PlayerStats : MonoBehaviourPunCallbacks
             PauseGameCanvas.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Time.timeScale = 0;
         }       
     }
 
@@ -117,6 +116,7 @@ public class PlayerStats : MonoBehaviourPunCallbacks
         RespawnPanel.SetActive(true);
         this.gameObject.GetComponent<PlayerMovementV2>().enabled = false;
         Cam.GetComponent<MouseLook>().enabled = false;
+        playerGraphics.GetComponent<PlayerAnimController>().enabled = false;
     }
 
     public void Respawn()
@@ -125,10 +125,10 @@ public class PlayerStats : MonoBehaviourPunCallbacks
         this.gameObject.transform.position = RandomSpawnPoint.transform.position;
         respawnTimer = respawnTime;
         this.gameObject.GetComponent<PlayerMovementV2>().enabled = true;
+        playerGraphics.GetComponent<PlayerAnimController>().enabled = true;
         Cam.GetComponent<MouseLook>().enabled = true;  
         RespawnPanel.SetActive(false);
         isdead = false;
         Health = StartHealth;
     }
-
 }

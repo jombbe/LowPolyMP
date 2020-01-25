@@ -11,12 +11,10 @@ public class PauseGameHandler : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("LobbyScene");
         PhotonNetwork.LeaveLobby();
         PhotonNetwork.LeaveRoom();
-        Time.timeScale = 1;
     }
 
     public void ReturnGame()
     {
-        Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         this.gameObject.SetActive(false);

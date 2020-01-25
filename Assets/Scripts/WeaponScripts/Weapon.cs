@@ -20,6 +20,8 @@ public class Weapon : MonoBehaviourPunCallbacks
     [SerializeField]
     GameObject player;
 
+    PlayerStats playerStats;
+
 
     public ParticleSystem MuzzleFlash = null;
 
@@ -31,6 +33,7 @@ public class Weapon : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        playerStats = FindObjectOfType<PlayerStats>();
         player = GameObject.FindWithTag("Player");
     }
 
@@ -40,7 +43,10 @@ public class Weapon : MonoBehaviourPunCallbacks
         if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
-            Shoot();
+            if (!playerStats.isdead)
+            {
+                Shoot();
+            }
         }
     }
 
