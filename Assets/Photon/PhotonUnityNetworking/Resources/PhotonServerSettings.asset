@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: d23b9105-42eb-4881-942d-475351cc4c35
+    AppIdRealtime: fd6f9698-6ee7-4833-8843-9d096111ad9d
     AppIdChat: 
     AppIdVoice: 
     AppVersion: 0.1
@@ -41,5 +41,6 @@ MonoBehaviour:
   - PlayEffects
   - PartManager
   - DisableOnDead
+  - weaponSound
   DisableAutoOpenWizard: 1
   ShowSettings: 1

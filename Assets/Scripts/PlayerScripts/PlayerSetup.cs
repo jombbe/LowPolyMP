@@ -13,6 +13,12 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     Camera camera;
 
     [SerializeField]
+    GameObject playerAudio;
+
+    [SerializeField]
+    GameObject RemoteAudio;
+
+    [SerializeField]
     GameObject PlayerStatsCanvas;
 
     [SerializeField]
@@ -30,6 +36,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
 
         if (photonView.IsMine)
         {
+            RemoteAudio.SetActive(false);
             PlayerStatsCanvas.SetActive(true);
             transform.GetComponent<PlayerMovementV2>().enabled = true;
             transform.GetComponent<CharacterController>().enabled = true;
@@ -46,6 +53,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         }
         else
         {
+            RemoteAudio.SetActive(true);
             PlayerStatsCanvas.SetActive(false);
             transform.GetComponent<PlayerMovementV2>().enabled = false;
             transform.GetComponent<CharacterController>().enabled = false;

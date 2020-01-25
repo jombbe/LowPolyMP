@@ -15,6 +15,9 @@ public class Weapon : MonoBehaviourPunCallbacks
     GameObject ImpactEffect;
 
     [SerializeField]
+    GameObject playerAudios;
+
+    [SerializeField]
     GameObject ImpactEffectBlood;
 
     [SerializeField]
@@ -29,26 +32,31 @@ public class Weapon : MonoBehaviourPunCallbacks
 
     public Camera RaycastCam;
 
-    public AudioClip impact;
+    [SerializeField]
     AudioSource audioSource;
+
+    [SerializeField]
+    AudioClip WeaponSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerAudios = GameObject.FindWithTag("playerAudio");
         playerStats = FindObjectOfType<PlayerStats>();
         player = GameObject.FindWithTag("Player");
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if(Input.GetKey(KeyCode.Mouse0) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             if (!playerStats.isdead)
             {
-                audioSource.Play();
+                audioSource.clip = WeaponSound;
+                audioSource.PlayOneShot(audioSource.clip);
+                playerAudios.GetComponent<PhotonView>().RPC("weaponSound", RpcTarget.All, true);
                 Shoot();
             }
         }
@@ -83,6 +91,7 @@ public class Weapon : MonoBehaviourPunCallbacks
         if(firing)
         {
             MuzzleFlash.Play();
+            audioSource.Play();
         }
     }
 }

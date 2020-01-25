@@ -12,6 +12,8 @@ TagManager:
   - BodyPart
   - DamageText
   - spawnPoint
+  - playerAudio
+  - remoteAudio
   layers:
   - Default
   - TransparentFX
