@@ -30,6 +30,10 @@ public class PlayerStats : MonoBehaviourPunCallbacks
     [SerializeField]
     GameObject playerGraphics;
 
+    [SerializeField]
+    Animator anim;
+
+
 
     [SerializeField]
     Image healtBar;
@@ -67,6 +71,7 @@ public class PlayerStats : MonoBehaviourPunCallbacks
         {
             respawnTimer -= Time.deltaTime;
             RespawnTimeText.text = respawnTimer.ToString("0");
+            anim.SetBool("Dead", true);
         }
 
         if(respawnTimer < 0f)
@@ -129,6 +134,7 @@ public class PlayerStats : MonoBehaviourPunCallbacks
         Cam.GetComponent<MouseLook>().enabled = true;  
         RespawnPanel.SetActive(false);
         isdead = false;
+        anim.SetBool("Dead", false);
         Health = StartHealth;
     }
 }

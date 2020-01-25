@@ -442,7 +442,8 @@ MonoBehaviour:
   RespawnPanel: {fileID: 7245315761105786439}
   RespawnTimeText: {fileID: 2005304495737383559}
   spawnPoints: []
-  playerGraphics: {fileID: 909151045897540037}
+  playerGraphics: {fileID: 5851542240922375061}
+  anim: {fileID: 909151045890257753}
   healtBar: {fileID: 2399788505528425850}
   powerBar: {fileID: 8373177319110208321}
   respawnTimer: 0

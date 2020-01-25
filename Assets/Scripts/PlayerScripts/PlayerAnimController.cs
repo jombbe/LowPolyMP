@@ -61,16 +61,6 @@ public class PlayerAnimController : MonoBehaviourPunCallbacks
         {
             anim.SetBool("Jump", false);
         }
-
-        if(playerStats.isdead)
-        {
-            anim.SetBool("Dead", true);
-        }
-
-        if(!playerStats.isdead)
-        {
-            anim.SetBool("Dead", false);
-        }
     }
 }
 

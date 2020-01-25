@@ -1196,7 +1196,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  playerGraphics: {fileID: 2093478602607549217}
+  playerGraphics: {fileID: 4658033834732231025}
+  anim: {fileID: 2093478602617043389}
   healtBar: {fileID: 8608608958658566553}
   powerBar: {fileID: 2452683586200629154}
   respawnTimer: 0
