@@ -29,12 +29,15 @@ public class Weapon : MonoBehaviourPunCallbacks
 
     public Camera RaycastCam;
 
+    public AudioClip impact;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
         player = GameObject.FindWithTag("Player");
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,6 +48,7 @@ public class Weapon : MonoBehaviourPunCallbacks
             nextTimeToFire = Time.time + 1f / fireRate;
             if (!playerStats.isdead)
             {
+                audioSource.Play();
                 Shoot();
             }
         }
