@@ -21,6 +21,9 @@ public class Weapon : MonoBehaviourPunCallbacks
     GameObject ImpactEffectBlood;
 
     [SerializeField]
+    GameObject AimTarget;
+
+    [SerializeField]
     GameObject player;
 
     PlayerStats playerStats;
