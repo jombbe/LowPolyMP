@@ -99,10 +99,7 @@ public class Weapon : MonoBehaviourPunCallbacks
         RaycastHit hit;
         if (Physics.Raycast(RaycastPoint.transform.position, RaycastPoint.transform.forward, out hit, Range))
         {
-            if (hit.collider)
-            {
-                AimTarget.transform.position = hit.transform.position;
-            }
+             AimTarget.transform.position = hit.transform.position;
         }
     }
 
