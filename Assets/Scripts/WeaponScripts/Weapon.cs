@@ -18,9 +18,6 @@ public class Weapon : MonoBehaviourPunCallbacks
     GameObject playerAudios;
 
     [SerializeField]
-    GameObject AimTarget;
-
-    [SerializeField]
     GameObject ImpactEffectBlood;
 
     [SerializeField]
@@ -66,11 +63,6 @@ public class Weapon : MonoBehaviourPunCallbacks
         }
     }
 
-    private void FixedUpdate()
-    {
-        MoveAimTarget();
-    }
-
     void Shoot()
     {
         RaycastHit hit;
@@ -91,15 +83,6 @@ public class Weapon : MonoBehaviourPunCallbacks
                 PhotonNetwork.Instantiate(ImpactEffectBlood.name, hit.point, Quaternion.LookRotation(hit.normal));
             }
 
-        }
-    }
-
-    public void MoveAimTarget()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(RaycastPoint.transform.position, RaycastPoint.transform.forward, out hit, Range))
-        {
-             AimTarget.transform.position = hit.transform.position;
         }
     }
 

@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1050589554
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1050589555}
-  m_Layer: 0
-  m_Name: WeaponAimTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1050589555
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1050589554}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6669761485921528159}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &7257969268236469807
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -186,7 +156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620613157464845634}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.084, y: -0.089, z: -0}
+  m_LocalPosition: {x: -0.573, y: -0.089, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 83015458078556633}
@@ -457,6 +427,7 @@ GameObject:
   - component: {fileID: 6669761485674736291}
   - component: {fileID: 6669761485674736289}
   - component: {fileID: 6669761485674736288}
+  - component: {fileID: 881517380}
   m_Layer: 0
   m_Name: AimTarget
   m_TagString: Untagged
@@ -549,6 +520,19 @@ MonoBehaviour:
   useLocalTransformOnly: 0
   maxPositionDifferenceForVelocitySyncing: 10
   receivedStatesCounter: 0
+--- !u!114 &881517380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669761485674736290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 723f5edf38133904ba1c9869a44121f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 6669761485921528157}
 --- !u!1 &6669761485921528158
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +563,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6669761485674736291}
-  - {fileID: 1050589555}
   m_Father: {fileID: 6669761485960372729}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1963,11 +1946,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1564278524481534876, guid: 6f4068b2c025b06408a6559230322c70,
         type: 3}
-    - target: {fileID: 6237123912539146909, guid: ccbbeec2c24bcf24b93747895408239b,
-        type: 3}
-      propertyPath: AimTarget
-      value: 
-      objectReference: {fileID: 1050589554}
     - target: {fileID: 6237123912539146909, guid: ccbbeec2c24bcf24b93747895408239b,
         type: 3}
       propertyPath: player
