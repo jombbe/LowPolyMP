@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviourPunCallbacks
 
     private float nextTimeToFire = 0f;
 
-    public Camera RaycastCam;
+    public GameObject RaycastPoint;
 
     [SerializeField]
     AudioSource audioSource;
@@ -67,9 +67,10 @@ public class Weapon : MonoBehaviourPunCallbacks
         RaycastHit hit;
         MuzzleFlash.Play();
         this.GetComponent<PhotonView>().RPC("PlayEffects", RpcTarget.All, true);
-        if (Physics.Raycast(RaycastCam.transform.position, RaycastCam.transform.forward, out hit, Range))
+        if (Physics.Raycast(RaycastPoint.transform.position, RaycastPoint.transform.forward, out hit, Range))
         {
             Debug.Log(hit.transform.gameObject.name);
+            Debug.DrawLine(transform.position, transform.forward);
 
             if (!hit.collider.gameObject.CompareTag("BodyPart"))
             {
