@@ -18,6 +18,9 @@ public class Weapon : MonoBehaviourPunCallbacks
     GameObject playerAudios;
 
     [SerializeField]
+    GameObject AimTarget;
+
+    [SerializeField]
     GameObject ImpactEffectBlood;
 
     [SerializeField]
@@ -49,7 +52,8 @@ public class Weapon : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Mouse0) && Time.time >= nextTimeToFire)
+
+        if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             if (!playerStats.isdead)
@@ -62,6 +66,11 @@ public class Weapon : MonoBehaviourPunCallbacks
         }
     }
 
+    private void FixedUpdate()
+    {
+        MoveAimTarget();
+    }
+
     void Shoot()
     {
         RaycastHit hit;
@@ -70,7 +79,6 @@ public class Weapon : MonoBehaviourPunCallbacks
         if (Physics.Raycast(RaycastPoint.transform.position, RaycastPoint.transform.forward, out hit, Range))
         {
             Debug.Log(hit.transform.gameObject.name);
-            Debug.DrawLine(transform.position, transform.forward);
 
             if (!hit.collider.gameObject.CompareTag("BodyPart"))
             {
@@ -83,6 +91,18 @@ public class Weapon : MonoBehaviourPunCallbacks
                 PhotonNetwork.Instantiate(ImpactEffectBlood.name, hit.point, Quaternion.LookRotation(hit.normal));
             }
 
+        }
+    }
+
+    public void MoveAimTarget()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(RaycastPoint.transform.position, RaycastPoint.transform.forward, out hit, Range))
+        {
+            if (hit.collider)
+            {
+                AimTarget.transform.position = hit.transform.position;
+            }
         }
     }
 
